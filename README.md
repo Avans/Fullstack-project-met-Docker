@@ -26,8 +26,8 @@ De volgende placeholders komen in de repository voor. Vervang ze allemaal met je
 	- Beschrijving: de naam van je ASP.NET projectbestand (zonder extensie). Bijvoorbeeld `MyWebApp` als je `MyWebApp.csproj` hebt.
 
 - `{{Jouw groepsletter}}`
-	- Bestanden: `.env`, `docker-compose.yml`
-	- Beschrijving: de letter van jouw groep (bijv. `A`, `B`, etc.). Dit wordt gebruikt voor de database en domeinnamen.
+	- Bestanden: `.env`, `acceptatie.env`, `docker-compose.yml`
+	- Beschrijving: de letter van jouw groep (bijv. `A`, `B`, etc.). Dit wordt gebruikt voor de database, domeinnamen en de `Team_name` variabele.
 
 - `{{JouwConnectieNaam}}`
 	- Bestanden: `Server/Program.cs`, `docker-compose.dev.yml`
@@ -38,9 +38,8 @@ De volgende placeholders komen in de repository voor. Vervang ze allemaal met je
 	- Beschrijving: de naam van je DbContext klasse (bijv. `MyDbContext`).
 
 - `{{Jouw wachtwoord}}`
-	- Bestanden: `.env`, `docker-compose.dev.yml`
+	- Bestanden: `.env`, `acceptatie.env`, `docker-compose.dev.yml`
 	- Beschrijving: sterk SA-wachtwoord voor de MSSQL container. Moet voldoen aan SQL Server password policy (minimaal 8 tekens, hoofdletter, kleine letter, cijfer en speciaal teken).
-	Voor dev kan je zelf je wachtwoord kiezen, voor acceptatie en productie krijg je van ons je wachtwoord.
 
 - `{{Jouwdatabasenaam}}`
 	- Bestand: `docker-compose.dev.yml`
@@ -54,7 +53,7 @@ Zorg dat je elk van bovenstaande placeholders vervangt voordat je de containers 
 
 1. Installeer en start Docker Desktop (met WSL2 backend of Windows containers indien je dat nodig hebt).
 
-2. Open een PowerShell venster en ga naar de projectmap (de map waar `docker-compose.dev.yml` staat):
+2. Open een PowerShell venster en ga naar de projectmap (de map waar `docker-compose.yml` staat):
 
 ```powershell
 cd "c:\Users\Martijn\Desktop\Fullstack-project-met-Docker"
@@ -65,6 +64,7 @@ cd "c:\Users\Martijn\Desktop\Fullstack-project-met-Docker"
 - `Server/Dockerfile` — zet hier de juiste projectnaam.
 - `Server/Program.cs` — vul de juiste connection string naam en DbContext in.
 - `.env` — vul `{{Jouw groepsletter}}` en `{{Jouw wachtwoord}}` in.
+- `acceptatie.env` — vul `{{Jouw groepsletter}}` en `{{Jouw wachtwoord}}` in.
 - `docker-compose.yml` — vul `{{Jouw groepsletter}}` in.
 - `docker-compose.dev.yml` — vul `{{Jouw wachtwoord}}`, `{{Jouwdatabasenaam}}` en `{{JouwConnectieNaam}}` in.
 
